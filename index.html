@@ -2,50 +2,153 @@
 <html>
 <head>
   <title>Death 4 Rebirth</title>
+
   <style>
     body {
-      background: black;
-      color: white;
-      font-family: Arial;
       margin: 0;
+      background: #dcdcdc;
+      font-family: Arial, sans-serif;
     }
+
     .container {
       display: flex;
+      max-width: 1200px;
+      margin: auto;
+      padding-top: 20px;
     }
+
+    /* LEFT SIDEBAR */
     .sidebar {
-      width: 25%;
-      padding: 20px;
-      border-right: 1px solid gray;
+      width: 300px;
+      background: #eee;
+      padding: 15px;
+      border-radius: 10px;
+      margin-right: 15px;
     }
+
+    .profile {
+      text-align: center;
+    }
+
+    .profile img {
+      width: 120px;
+      border-radius: 50%;
+    }
+
+    .section {
+      margin-top: 20px;
+    }
+
+    .section h3 {
+      margin-bottom: 10px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .section a {
+      display: block;
+      color: #888;
+      font-size: 13px;
+      margin: 5px 0;
+      text-decoration: none;
+    }
+
+    .section a:hover {
+      color: black;
+    }
+
+    /* MAIN BLOG */
     .main {
-      width: 75%;
-      padding: 20px;
+      flex: 1;
     }
-    a { color: red; text-decoration: none; }
+
+    .post {
+      background: white;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      padding: 15px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+
+    .post h2 {
+      font-size: 18px;
+      color: orange;
+      margin-bottom: 10px;
+    }
+
+    .post img {
+      width: 100%;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 200px;
+      margin-top: 10px;
+      border-radius: 5px;
+    }
+
+    .header {
+      background: #ccc;
+      padding: 10px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      font-weight: bold;
+      color: #666;
+    }
+
   </style>
 </head>
+
 <body>
 
 <div class="container">
+
+  <!-- SIDEBAR -->
   <div class="sidebar">
-    <h2>Death4Rebirth</h2>
-    <p><a href="#">Home</a></p>
-    <p><a href="#">Music</a></p>
-    <p><a href="#">Blog</a></p>
+
+    <div class="profile">
+      <img src="logo.png">
+      <p><b>Death 4 Rebirth</b></p>
+      <p style="font-size:12px;">welcome to rebirth</p>
+    </div>
+
+    <div class="section">
+      <h3>Latest posts</h3>
+      <a href="#">Rebirth begins</a>
+      <a href="#">Destroy old self</a>
+    </div>
+
+    <div class="section">
+      <h3>Music</h3>
+      <a href="#">Now playing</a>
+    </div>
+
   </div>
 
+  <!-- MAIN -->
   <div class="main">
-    <h1>Welcome</h1>
-    <p>This is the beginning.</p>
 
-    <h2>Music</h2>
-    <iframe width="100%" height="200"
-      src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-      frameborder="0"></iframe>
+    <div class="header">DEATH-REBIRTH</div>
 
-    <h2>Post #1</h2>
-    <p>Your rebirth starts here.</p>
+    <div class="post">
+      <h2>Rebirth</h2>
+      <p>This is the start of everything.</p>
+
+      <iframe src="https://www.youtube.com/embed/pcFK4HzAlsU"></iframe>
+      <iframe src="https://www.youtube.com/embed/H6ThrNMtoAI"></iframe>
+      <iframe src="https://www.youtube.com/embed/BKGS3IluLJY"></iframe>
+      <iframe src="https://www.youtube.com/embed/NPgG9n_HpGc"></iframe>
+    </div>
+
+    <div class="post">
+      <h2>First Post</h2>
+      <p>Rebuild. Reset. Rise.</p>
+    </div>
+
   </div>
+
 </div>
 
 </body>
