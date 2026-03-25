@@ -6,50 +6,35 @@
   <style>
     body {
       margin: 0;
-      background: #dcdcdc;
+      background: #d9d9d9;
       font-family: Arial, sans-serif;
     }
 
     .container {
       display: flex;
-      max-width: 1200px;
+      max-width: 1100px;
       margin: auto;
-      padding-top: 20px;
+      padding: 20px;
+      gap: 15px;
     }
 
     /* SIDEBAR */
     .sidebar {
-      width: 300px;
-      background: #eee;
-      padding: 15px;
+      width: 250px;
+      background: #efefef;
       border-radius: 10px;
-      margin-right: 15px;
-    }
-
-    .profile {
+      padding: 15px;
       text-align: center;
     }
 
-    .profile img {
-      width: 140px;
-      border-radius: 50%;
+    .sidebar img {
+      width: 120px;
       margin-bottom: 10px;
     }
 
-    .profile-text {
+    .author {
       font-size: 13px;
       line-height: 1.5;
-      margin-top: 10px;
-    }
-
-    .section {
-      margin-top: 20px;
-    }
-
-    .section h3 {
-      font-size: 14px;
-      color: #555;
-      margin-bottom: 10px;
     }
 
     /* MAIN */
@@ -58,42 +43,53 @@
     }
 
     .header {
-      background: #ccc;
+      background: #c9c9c9;
       padding: 10px;
       border-radius: 10px;
       margin-bottom: 10px;
       font-weight: bold;
-      color: #666;
+      color: #555;
     }
 
     .post {
       background: white;
       border-radius: 10px;
       padding: 15px;
-      margin-bottom: 20px;
-      box-shadow: 0 0 5px rgba(0,0,0,0.1);
     }
 
-    /* MUSIC BOXES */
-    .music-box {
+    /* GRID MUSIC */
+    .music-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    .music-card {
       background: #111;
       color: white;
       border-radius: 10px;
       padding: 10px;
-      margin-bottom: 20px;
+      text-align: center;
     }
 
     .song-title {
-      font-size: 14px;
-      font-weight: bold;
-      margin-bottom: 5px;
+      font-size: 12px;
+      margin-bottom: 8px;
       color: #ff4d4d;
     }
 
     iframe {
       width: 100%;
-      height: 180px;
-      border-radius: 8px;
+      height: 120px;
+      border-radius: 6px;
+    }
+
+    /* MOBILE */
+    @media (max-width: 900px) {
+      .music-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
 
   </style>
@@ -105,27 +101,17 @@
 
   <!-- SIDEBAR -->
   <div class="sidebar">
+    <img src="logo.png">
 
-    <div class="profile">
-      <img src="logo.png">
-
-      <div class="profile-text">
-        <b>Author:</b> kale<br>
-        welcome to rebirth!<br><br>
-        dm to get ur photos or music posted!<br>
-        <b>@kaleking6676</b>
-      </div>
+    <div class="author">
+      <b>Author:</b> kale<br>
+      welcome to rebirth!<br><br>
+      dm to get ur photos or music posted!<br>
+      <b>@kaleking6676</b>
     </div>
-
-    <div class="section">
-      <h3>Latest Posts</h3>
-      <p>Rebirth begins</p>
-      <p>Destroy old self</p>
-    </div>
-
   </div>
 
-  <!-- MAIN CONTENT -->
+  <!-- MAIN -->
   <div class="main">
 
     <div class="header">DEATH-REBIRTH</div>
@@ -134,28 +120,28 @@
 
       <h2>Music</h2>
 
-      <!-- SONG 1 -->
-      <div class="music-box">
-        <div class="song-title">Song 1 - Artist</div>
-        <iframe src="https://www.youtube.com/embed/pcFK4HzAlsU" allowfullscreen></iframe>
-      </div>
+      <div class="music-grid">
 
-      <!-- SONG 2 -->
-      <div class="music-box">
-        <div class="song-title">Song 2 - Artist</div>
-        <iframe src="https://www.youtube.com/embed/H6ThrNMtoAI" allowfullscreen></iframe>
-      </div>
+        <div class="music-card">
+          <div class="song-title">ghost girl - Lil Peep</div>
+          <iframe src="https://www.youtube.com/embed/pcFK4HzAlsU"></iframe>
+        </div>
 
-      <!-- SONG 3 -->
-      <div class="music-box">
-        <div class="song-title">Song 3 - Artist</div>
-        <iframe src="https://www.youtube.com/embed/BKGS3IluLJY" allowfullscreen></iframe>
-      </div>
+        <div class="music-card">
+          <div class="song-title">Impostor Syndrome - Sidney Gish</div>
+          <iframe src="https://www.youtube.com/embed/H6ThrNMtoAI"></iframe>
+        </div>
 
-      <!-- SONG 4 -->
-      <div class="music-box">
-        <div class="song-title">Song 4 - Artist</div>
-        <iframe src="https://www.youtube.com/embed/NPgG9n_HpGc" allowfullscreen></iframe>
+        <div class="music-card">
+          <div class="song-title">A Promise Enclosed - Forgotten Alibi</div>
+          <iframe src="https://www.youtube.com/embed/BKGS3IluLJY"></iframe>
+        </div>
+
+        <div class="music-card">
+          <div class="song-title">Slow Down - Lucki</div>
+          <iframe src="https://www.youtube.com/embed/NPgG9n_HpGc"></iframe>
+        </div>
+
       </div>
 
     </div>
