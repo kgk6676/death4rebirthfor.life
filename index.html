@@ -1,426 +1,449 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Death 4 Rebirth</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, initial-scale=1.0">
+  <title>DEATH ⇄ REBIRTH</title>
+  <meta name="description" content="Personal archive — music, notes, and quiet moments.">
   <style>
-    body {
+    * {
       margin: 0;
-      background: #d9d9d9;
-      font-family: Arial, sans-serif;
-      color: #222;
+      padding: 0;
+      box-sizing: border-box;
     }
 
+    body {
+      background: #e5e5e5;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, sans-serif;
+      color: #1a1a1a;
+      line-height: 1.5;
+      padding: 32px 20px;
+    }
+
+    /* refined container – less clutter, more air */
     .container {
+      max-width: 1280px;
+      margin: 0 auto;
       display: flex;
-      max-width: 1150px;
-      margin: auto;
-      padding: 20px;
-      gap: 15px;
+      gap: 28px;
       align-items: flex-start;
     }
 
-    /* SIDEBAR */
+    /* SIDEBAR – minimal, neutral, functional */
     .sidebar {
-      width: 260px;
-      background: #efefef;
-      border-radius: 10px;
-      padding: 15px;
-      text-align: center;
-      box-sizing: border-box;
+      width: 280px;
+      background: #f2f2f2;
+      border-radius: 24px;
+      padding: 20px;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+      border: 1px solid #e0e0e0;
     }
 
-    .datetime-box,
-    .sidebar-section {
-      background: #f8f8f8;
-      border: 1px solid #d0d0d0;
-      border-radius: 8px;
-      padding: 10px;
-      margin-bottom: 12px;
+    .info-card {
+      margin-bottom: 28px;
     }
 
     .datetime {
+      font-family: 'SF Mono', 'Fira Code', monospace;
       font-size: 13px;
-      color: #555;
-      line-height: 1.5;
+      color: #3b3b3b;
+      background: #eaeaea;
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 40px;
+      letter-spacing: -0.2px;
     }
 
-    .sidebar img.logo {
-      width: 120px;
-      margin: 8px auto 10px;
-      display: block;
+    .logo {
+      width: 100px;
+      height: auto;
+      margin: 16px 0 12px 0;
+      opacity: 0.8;
+      filter: grayscale(0.2);
     }
 
     .author {
-      font-size: 13px;
-      line-height: 1.5;
+      font-size: 14px;
+      color: #2c2c2c;
+      margin-top: 8px;
+      border-top: 1px solid #e0e0e0;
+      padding-top: 14px;
+    }
+
+    .author span {
+      font-weight: 500;
+      color: #000;
+    }
+
+    .sidebar-section {
+      margin-bottom: 28px;
     }
 
     .section-title {
-      font-size: 12px;
-      font-weight: bold;
-      letter-spacing: 1px;
-      color: #666;
-      margin-bottom: 8px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.6px;
       text-transform: uppercase;
+      color: #6b6b6b;
+      margin-bottom: 12px;
     }
 
     .side-list {
-      font-size: 12px;
-      line-height: 1.8;
-      color: #444;
-      text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 450;
     }
 
-    .side-list div,
-    .side-list a {
-      display: block;
-      color: #444;
+    .side-list a, .side-list div {
+      color: #2b2b2b;
       text-decoration: none;
+      transition: color 0.2s ease;
     }
 
     .side-list a:hover {
-      color: #b30000;
+      color: #8b3c3c;
     }
 
-    /* MAIN */
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 6px;
+    }
+
+    /* MAIN PANEL – cleaner, less “blog energy” */
     .main {
       flex: 1;
+      min-width: 0;
     }
 
     .header {
-      background: #c9c9c9;
-      padding: 12px 14px;
-      border-radius: 10px;
-      margin-bottom: 10px;
-      font-weight: bold;
-      color: #555;
-      letter-spacing: 1px;
+      font-size: 28px;
+      font-weight: 500;
+      letter-spacing: -0.5px;
+      margin-bottom: 24px;
+      padding-bottom: 6px;
+      border-bottom: 1.5px solid #c0c0c0;
+      display: inline-block;
+      color: #1f1f1f;
     }
 
+    /* post cards – calm, airy */
     .post {
-      background: white;
-      border-radius: 10px;
-      padding: 15px;
-      margin-bottom: 15px;
-      box-sizing: border-box;
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 24px;
+      margin-bottom: 28px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.02), 0 1px 2px rgba(0,0,0,0.03);
+      border: 1px solid #e8e8e8;
     }
 
     .post h2 {
-      margin-top: 0;
-      margin-bottom: 8px;
       font-size: 22px;
+      font-weight: 530;
+      margin-bottom: 8px;
+      letter-spacing: -0.2px;
+      color: #111;
     }
 
     .meta {
-      font-size: 11px;
-      color: #777;
-      margin-bottom: 10px;
+      font-size: 12px;
+      color: #888;
+      margin-bottom: 18px;
+      font-family: monospace;
     }
 
     .intro {
-      font-size: 13px;
-      line-height: 1.6;
-      color: #333;
+      font-size: 15px;
+      color: #2a2a2a;
+      margin-bottom: 18px;
     }
 
     .featured-box {
-      margin-top: 15px;
-      background: #f7f7f7;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      padding: 12px;
+      background: #f8f8f8;
+      border-left: 3px solid #9c4a4a;
+      padding: 12px 18px;
+      border-radius: 12px;
+      margin-top: 10px;
     }
 
     .featured-title {
-      font-size: 14px;
-      font-weight: bold;
-      color: #b30000;
+      font-size: 13px;
+      font-weight: 600;
+      color: #9c4a4a;
       margin-bottom: 6px;
+      letter-spacing: -0.2px;
     }
 
-    /* MUSIC GRID */
+    /* music grid – less gimmick, more legible */
     .music-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 15px;
-      margin-top: 15px;
+      gap: 20px;
+      margin: 20px 0 8px 0;
     }
 
     .music-card {
-      background: #111;
-      color: white;
-      border-radius: 10px;
-      padding: 10px;
-      text-align: center;
-      box-sizing: border-box;
+      background: #fafafa;
+      border-radius: 20px;
+      padding: 14px;
+      transition: all 0.2s ease;
+      border: 1px solid #efefef;
     }
 
     .song-title {
-      font-size: 12px;
-      margin-bottom: 8px;
-      color: #ff5c5c;
-      font-weight: bold;
-      line-height: 1.4;
-      min-height: 32px;
+      font-size: 14px;
+      font-weight: 540;
+      margin-bottom: 12px;
+      color: #1a1a1a;
+      letter-spacing: -0.2px;
     }
 
     iframe {
       width: 100%;
       height: 120px;
-      border-radius: 6px;
-      border: 0;
+      border-radius: 12px;
+      border: none;
     }
 
     .cd {
-      margin-top: 10px;
+      margin: 12px 0 8px;
+      text-align: center;
     }
 
     .cd img {
-      width: 110px;
-      display: block;
-      margin: 0 auto;
-      filter: brightness(1.1) contrast(1.1);
+      width: 70px;
+      opacity: 0.65;
+      transition: 0.2s;
     }
 
     .song-note {
-      margin-top: 8px;
       font-size: 11px;
-      color: #d0d0d0;
+      color: #6f6f6f;
       line-height: 1.4;
+      margin-top: 8px;
+      text-align: center;
     }
 
+    /* mini grid – compact and readable */
     .mini-posts {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-top: 15px;
+      gap: 20px;
+      margin: 12px 0 20px;
     }
 
     .mini-card {
-      background: #f7f7f7;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      padding: 10px;
+      background: #ffffff;
+      border: 1px solid #e6e6e6;
+      border-radius: 18px;
+      padding: 18px;
     }
 
     .mini-card h3 {
-      margin: 0 0 6px;
-      font-size: 14px;
-      color: #444;
+      font-size: 16px;
+      font-weight: 530;
+      margin-bottom: 10px;
+      color: #2c2c2c;
     }
 
     .mini-card p {
-      margin: 0;
-      font-size: 12px;
-      line-height: 1.5;
-      color: #555;
+      font-size: 13.5px;
+      color: #4a4a4a;
+      line-height: 1.45;
     }
 
-    /* FOOTER */
     .footer {
-      text-align: center;
+      text-align: left;
       font-size: 12px;
-      color: #555;
-      margin-top: 20px;
-      padding: 15px;
+      color: #7a7a7a;
+      padding: 10px 0 20px;
+      border-top: 1px solid #ddd;
+      margin-top: 12px;
     }
 
-    /* MOBILE */
-    @media (max-width: 950px) {
+    /* responsive */
+    @media (max-width: 900px) {
       .container {
         flex-direction: column;
       }
-
       .sidebar {
         width: 100%;
       }
-
       .music-grid {
         grid-template-columns: repeat(2, 1fr);
       }
-
-      .mini-posts {
-        grid-template-columns: 1fr;
-      }
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 550px) {
       .music-grid {
         grid-template-columns: 1fr;
       }
+      .mini-posts {
+        grid-template-columns: 1fr;
+      }
+      body {
+        padding: 20px 16px;
+      }
+    }
+
+    /* subtle details */
+    a {
+      text-decoration: none;
+    }
+
+    button, .fake-link {
+      background: none;
+      border: none;
     }
   </style>
 </head>
-
 <body>
 
 <div class="container">
 
-  <!-- SIDEBAR -->
-  <div class="sidebar">
-
-    <div class="datetime-box">
+  <!-- SIDEBAR — clean, neutral, no overbearing personality -->
+  <aside class="sidebar">
+    <div class="info-card">
       <div class="datetime" id="datetime"></div>
-    </div>
-
-    <div class="sidebar-section">
-      <img src="logo.png" class="logo">
-
+      <img src="logo.png" alt="symbol" class="logo" onerror="this.style.opacity='0.3'">
       <div class="author">
-        <b>Author:</b> kale<br>
-        welcome to rebirth!<br><br>
-        dm to get ur photos or music posted!<br>
-        <b>@kaleking6676</b>
+        <span>kale</span> — editor & curator<br>
+        archive / sounds / field notes<br>
+        submissions open: <span style="font-family: monospace;">@kaleking6676</span>
       </div>
     </div>
 
     <div class="sidebar-section">
-      <div class="section-title">Latest Updates</div>
+      <div class="section-title">UPDATES</div>
       <div class="side-list">
-        <div>new tracks added</div>
-        <div>rebirth page live</div>
-        <div>submissions open</div>
+        <div>◌ new tracks — march 2026</div>
+        <div>◌ rebirth page live</div>
+        <div>◌ submissions open (music / photo)</div>
       </div>
     </div>
 
     <div class="sidebar-section">
-      <div class="section-title">Archive</div>
+      <div class="section-title">ARCHIVE</div>
       <div class="side-list">
-        <div>2026 / March (4)</div>
-        <div>2026 / February (0)</div>
-        <div>2026 / January (0)</div>
+        <div>mar 2026 (4)</div>
+        <div>feb 2026 —</div>
+        <div>jan 2026 —</div>
       </div>
     </div>
 
     <div class="sidebar-section">
-  <div class="section-title">Links</div>
-  <div class="side-list">
-    <a href="https://www.instagram.com/kaleking6676" target="_blank">Instagram</a>
-    <div>Snap: kaleking6676</div>
-    <div>TikTok: kale.140</div>
-    <a href="#">Contact</a>
-  </div>
-</div>
+      <div class="section-title">CONNECT</div>
+      <div class="side-list">
+        <a href="https://www.instagram.com/kaleking6676" target="_blank" rel="noopener">instagram</a>
+        <div>snap: kaleking6676</div>
+        <div>tiktok: kale.140</div>
+        <a href="#" style="cursor: default;">contact (dm)</a>
+      </div>
+    </div>
+  </aside>
 
-  </div>
+  <!-- MAIN CONTENT — lower cringe, higher signal -->
+  <main class="main">
+    <div class="header">DEATH ⇄ REBIRTH</div>
 
-  <!-- MAIN -->
-  <div class="main">
-
-    <div class="header">DEATH-REBIRTH</div>
-
-    <div class="post">
-      <h2>welcome to rebirth</h2>
-      <div class="meta">posted by kale • live page update</div>
-
+    <!-- intro post / land note -->
+    <article class="post">
+      <h2>welcome, quietly</h2>
+      <div class="meta">kale — march 2026</div>
       <div class="intro">
-        hi this is my blog 
-        #knownunelse
-        i need photos on here so dm me pls!!!!
-        posting music and all my stuff on here
+        a personal archive for sounds, images, and fragments. 
+        no overstatement, just rotation. if you want your work featured (photo / audio), 
+        send a dm.
       </div>
-
       <div class="featured-box">
-        <div class="featured-title">featured note</div>
-        update sooonn
-        
+        <div class="featured-title">→ notice</div>
+        upcoming journal entries + photo selection. refresh for updates.
       </div>
-    </div>
+    </article>
 
-    <div class="post">
-      <h2>music</h2>
-      <div class="meta">current rotation • curated by kale</div>
-
+    <!-- music section — carefully curated, minimal fanfare -->
+    <article class="post">
+      <h2>current rotation</h2>
+      <div class="meta">curated / listening notes</div>
       <div class="music-grid">
-
+        <!-- ghost girl - lil peep -->
         <div class="music-card">
-          <div class="song-title">ghost girl - Lil Peep</div>
-          <iframe src="https://www.youtube.com/embed/pcFK4HzAlsU" allowfullscreen></iframe>
+          <div class="song-title">ghost girl · lil peep</div>
+          <iframe src="https://www.youtube.com/embed/pcFK4HzAlsU" title="ghost girl" loading="lazy"></iframe>
           <div class="cd">
-            <img src="cd.gif" alt="CD animation">
+            <img src="cd.gif" alt="cd icon">
           </div>
-          <div class="song-note">late night energy / memory / floaty mood</div>
+          <div class="song-note">late-night drift / atmospheric</div>
         </div>
-
+        <!-- impostor syndrome - sidney gish -->
         <div class="music-card">
-          <div class="song-title">Impostor Syndrome - Sidney Gish</div>
-          <iframe src="https://www.youtube.com/embed/H6ThrNMtoAI" allowfullscreen></iframe>
+          <div class="song-title">impostor syndrome · sidney gish</div>
+          <iframe src="https://www.youtube.com/embed/H6ThrNMtoAI" title="impostor syndrome" loading="lazy"></iframe>
           <div class="cd">
-            <img src="cd.gif" alt="CD animation">
+            <img src="cd.gif" alt="cd icon">
           </div>
-          <div class="song-note">restless feeling / overthinking / sharp lyrics</div>
+          <div class="song-note">restless & articulate</div>
         </div>
-
+        <!-- a promise enclosed - forgotten alibi -->
         <div class="music-card">
-          <div class="song-title">A Promise Enclosed - Forgotten Alibi</div>
-          <iframe src="https://www.youtube.com/embed/BKGS3IluLJY" allowfullscreen></iframe>
+          <div class="song-title">a promise enclosed · forgotten alibi</div>
+          <iframe src="https://www.youtube.com/embed/BKGS3IluLJY" title="a promise enclosed" loading="lazy"></iframe>
           <div class="cd">
-            <img src="cd.gif" alt="CD animation">
+            <img src="cd.gif" alt="cd icon">
           </div>
-          <div class="song-note">dark atmosphere / drifting / hidden gem</div>
+          <div class="song-note">dark / hidden gem</div>
         </div>
-
+        <!-- slow down - lucki -->
         <div class="music-card">
-          <div class="song-title">Slow Down - Lucki</div>
-          <iframe src="https://www.youtube.com/embed/NPgG9n_HpGc" allowfullscreen></iframe>
+          <div class="song-title">slow down · lucki</div>
+          <iframe src="https://www.youtube.com/embed/NPgG9n_HpGc" title="slow down" loading="lazy"></iframe>
           <div class="cd">
-            <img src="cd.gif" alt="CD animation">
+            <img src="cd.gif" alt="cd icon">
           </div>
-          <div class="song-note">heavy mood / calm motion / spacey vibe</div>
+          <div class="song-note">heavy calm / spacey</div>
         </div>
-
       </div>
-    </div>
+    </article>
 
+    <!-- info blocks - utility tone -->
     <div class="mini-posts">
       <div class="mini-card">
         <h3>submissions</h3>
-        <p>
-          want your music or photos on the page? dm kale on insta and send what you want featured.
-        </p>
+        <p>send photography or original music via instagram dm ( @kaleking6676 ). featured in sidebar + main rotation with credit.</p>
       </div>
-
       <div class="mini-card">
-        <h3>coming soon</h3>
-        <p>
-          journal entries, more tracks, photo drops, custom sections, and a deeper archive page.
-        </p>
+        <h3>roadmap</h3>
+        <p>photo archive, personal journal, mix logs, and a deeper archive page by late april.</p>
       </div>
     </div>
 
-    <div class="footer">
-      Copyright © DEATH-REBIRTH All Rights Reserved.
-    </div>
-
-  </div>
-
+    <footer class="footer">
+      death ⇄ rebirth — all rights remain with respective creators.
+    </footer>
+  </main>
 </div>
 
 <script>
   function updateDateTime() {
     const now = new Date();
-
-    const date = now.toLocaleDateString(undefined, {
+    const formattedDate = now.toLocaleDateString('en-US', {
       weekday: 'short',
       year: 'numeric',
       month: 'short',
       day: 'numeric'
     });
-
-    const time = now.toLocaleTimeString(undefined, {
-      hour: 'numeric',
+    const formattedTime = now.toLocaleTimeString('en-US', {
+      hour: '2-digit',
       minute: '2-digit',
       second: '2-digit'
     });
-
-    document.getElementById('datetime').innerHTML = date + '<br>' + time;
+    document.getElementById('datetime').innerHTML = `${formattedDate} · ${formattedTime}`;
   }
-
   updateDateTime();
   setInterval(updateDateTime, 1000);
 </script>
-
 </body>
 </html>
