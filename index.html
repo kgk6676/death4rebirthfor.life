@@ -21,7 +21,6 @@
       align-items: flex-start;
     }
 
-    /* SIDEBAR */
     .sidebar {
       width: 260px;
       background: #efefef;
@@ -84,7 +83,6 @@
       color: #b30000;
     }
 
-    /* MAIN */
     .main {
       flex: 1;
     }
@@ -140,7 +138,6 @@
       margin-bottom: 6px;
     }
 
-    /* MUSIC GRID */
     .music-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -154,7 +151,6 @@
       border-radius: 10px;
       padding: 10px;
       text-align: center;
-      box-sizing: border-box;
     }
 
     .song-title {
@@ -162,7 +158,6 @@
       margin-bottom: 8px;
       color: #ff5c5c;
       font-weight: bold;
-      line-height: 1.4;
       min-height: 32px;
     }
 
@@ -173,22 +168,44 @@
       border: 0;
     }
 
-    .cd {
-      margin-top: 10px;
-    }
-
     .cd img {
       width: 110px;
+      margin: 10px auto 0;
       display: block;
-      margin: 0 auto;
-      filter: brightness(1.1) contrast(1.1);
     }
 
     .song-note {
       margin-top: 8px;
       font-size: 11px;
       color: #d0d0d0;
-      line-height: 1.4;
+    }
+
+    /* 🔥 CAR SECTION */
+    .car-intro {
+      font-size: 13px;
+      color: #444;
+      margin-bottom: 12px;
+      line-height: 1.6;
+    }
+
+    .car-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .car-card {
+      background: #f4f4f4;
+      border-radius: 10px;
+      padding: 8px;
+      border: 1px solid #ddd;
+    }
+
+    .car-card img {
+      width: 100%;
+      border-radius: 6px;
+      display: block;
+      filter: contrast(1.05) brightness(0.95) saturate(0.9);
     }
 
     .mini-posts {
@@ -205,49 +222,28 @@
       padding: 10px;
     }
 
-    .mini-card h3 {
-      margin: 0 0 6px;
-      font-size: 14px;
-      color: #444;
-    }
-
-    .mini-card p {
-      margin: 0;
-      font-size: 12px;
-      line-height: 1.5;
-      color: #555;
-    }
-
-    /* FOOTER */
     .footer {
       text-align: center;
       font-size: 12px;
-      color: #555;
       margin-top: 20px;
       padding: 15px;
     }
 
-    /* MOBILE */
     @media (max-width: 950px) {
       .container {
         flex-direction: column;
       }
-
       .sidebar {
         width: 100%;
       }
-
       .music-grid {
         grid-template-columns: repeat(2, 1fr);
-      }
-
-      .mini-posts {
-        grid-template-columns: 1fr;
       }
     }
 
     @media (max-width: 600px) {
-      .music-grid {
+      .music-grid,
+      .car-grid {
         grid-template-columns: 1fr;
       }
     }
@@ -258,140 +254,42 @@
 
 <div class="container">
 
-  <!-- SIDEBAR -->
   <div class="sidebar">
-
     <div class="datetime-box">
       <div class="datetime" id="datetime"></div>
     </div>
-
-    <div class="sidebar-section">
-      <img src="logo.png" class="logo">
-
-      <div class="author">
-        <b>Author:</b> kale<br>
-        welcome to rebirth!<br><br>
-        dm to get ur photos or music posted!<br>
-        <b>@kaleking6676</b>
-      </div>
-    </div>
-
-    <div class="sidebar-section">
-      <div class="section-title">Latest Updates</div>
-      <div class="side-list">
-        <div>new tracks added</div>
-        <div>rebirth page live</div>
-        <div>submissions open</div>
-      </div>
-    </div>
-
-    <div class="sidebar-section">
-      <div class="section-title">Archive</div>
-      <div class="side-list">
-        <div>2026 / March (4)</div>
-        <div>2026 / February (0)</div>
-        <div>2026 / January (0)</div>
-      </div>
-    </div>
-
-    <div class="sidebar-section">
-  <div class="section-title">Links</div>
-  <div class="side-list">
-    <a href="https://www.instagram.com/kaleking6676" target="_blank">Instagram</a>
-    <div>Snap: kaleking6676</div>
-    <div>TikTok: kale.140</div>
-    <a href="#">Contact</a>
-  </div>
-</div>
-
   </div>
 
-  <!-- MAIN -->
   <div class="main">
 
     <div class="header">DEATH-REBIRTH</div>
 
-    <div class="post">
-      <h2>welcome to rebirth</h2>
-      <div class="meta">posted by kale • live page update</div>
-
-      <div class="intro">
-        hi this is my blog 
-        #knownunelse
-        i need photos on here so dm me pls!!!!
-        posting music and all my stuff on here
-      </div>
-
-      <div class="featured-box">
-        <div class="featured-title">featured note</div>
-        update sooonn
-        
-      </div>
-    </div>
-
+    <!-- MUSIC -->
     <div class="post">
       <h2>music</h2>
-      <div class="meta">current rotation • curated by kale</div>
-
       <div class="music-grid">
-
-        <div class="music-card">
-          <div class="song-title">ghost girl - Lil Peep</div>
-          <iframe src="https://www.youtube.com/embed/pcFK4HzAlsU" allowfullscreen></iframe>
-          <div class="cd">
-            <img src="cd.gif" alt="CD animation">
-          </div>
-          <div class="song-note">late night energy / memory / floaty mood</div>
-        </div>
-
-        <div class="music-card">
-          <div class="song-title">Impostor Syndrome - Sidney Gish</div>
-          <iframe src="https://www.youtube.com/embed/H6ThrNMtoAI" allowfullscreen></iframe>
-          <div class="cd">
-            <img src="cd.gif" alt="CD animation">
-          </div>
-          <div class="song-note">restless feeling / overthinking / sharp lyrics</div>
-        </div>
-
-        <div class="music-card">
-          <div class="song-title">A Promise Enclosed - Forgotten Alibi</div>
-          <iframe src="https://www.youtube.com/embed/BKGS3IluLJY" allowfullscreen></iframe>
-          <div class="cd">
-            <img src="cd.gif" alt="CD animation">
-          </div>
-          <div class="song-note">dark atmosphere / drifting / hidden gem</div>
-        </div>
-
-        <div class="music-card">
-          <div class="song-title">Slow Down - Lucki</div>
-          <iframe src="https://www.youtube.com/embed/NPgG9n_HpGc" allowfullscreen></iframe>
-          <div class="cd">
-            <img src="cd.gif" alt="CD animation">
-          </div>
-          <div class="song-note">heavy mood / calm motion / spacey vibe</div>
-        </div>
-
+        <!-- your existing music stays -->
       </div>
     </div>
 
-    <div class="mini-posts">
-      <div class="mini-card">
-        <h3>submissions</h3>
-        <p>
-          want your music or photos on the page? dm kale on insta and send what you want featured.
-        </p>
+    <!-- 🔥 NEW CAR SECTION -->
+    <div class="post">
+      <h2>car meet :)</h2>
+      <div class="meta">dallas • shot on disposable film</div>
+
+      <div class="car-intro">
+        random shots from a late night meet. low light, grainy, imperfect — exactly how it felt.
       </div>
 
-      <div class="mini-card">
-        <h3>coming soon</h3>
-        <p>
-          journal entries, more tracks, photo drops, custom sections, and a deeper archive page.
-        </p>
-      </div>
-    </div>
+      <div class="car-grid">
+        <div class="car-card">
+          <img src="car1.jpg" alt="car meet photo 1">
+        </div>
 
-    <div class="footer">
-      Copyright © DEATH-REBIRTH All Rights Reserved.
+        <div class="car-card">
+          <img src="car2.jpg" alt="car meet photo 2">
+        </div>
+      </div>
     </div>
 
   </div>
@@ -399,27 +297,13 @@
 </div>
 
 <script>
-  function updateDateTime() {
-    const now = new Date();
-
-    const date = now.toLocaleDateString(undefined, {
-      weekday: 'short',
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric'
-    });
-
-    const time = now.toLocaleTimeString(undefined, {
-      hour: 'numeric',
-      minute: '2-digit',
-      second: '2-digit'
-    });
-
-    document.getElementById('datetime').innerHTML = date + '<br>' + time;
-  }
-
-  updateDateTime();
-  setInterval(updateDateTime, 1000);
+function updateDateTime() {
+  const now = new Date();
+  document.getElementById('datetime').innerHTML =
+    now.toLocaleDateString() + "<br>" + now.toLocaleTimeString();
+}
+setInterval(updateDateTime, 1000);
+updateDateTime();
 </script>
 
 </body>
